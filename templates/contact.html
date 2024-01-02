@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+<div class="container">
+<div class="row">
+    
+    <div class="col-md-6 mt-5">
+        <h3><i class="bi bi-building-fill"></i></h3>
+        <hr>
+        Across Central City's Missouri River,<br>
+        Keystone City,<br>
+          DC Extended Universe,<br>
+          <h6 class="mt-2"><i class="bi bi-telephone-fill text-danger"></i>&nbsp;&nbsp;78786743</h6>
+          <h6 class="mt-2"><i class="bi bi-envelope-fill text-danger"></i>&nbsp;&nbsp;flash@gmail.com</h6>
+    </div><!--Address mobile and Email end-->
+   
+
+    <div class="col-md-6 mt-5">
+            <h3><i class="bi bi-question-circle-fill text-danger"></i></h3>
+            <hr>
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label for="input1" class="form-label"><strong>Name</strong></label>
+                    <input type="text" class="form-control" id="input1" placeholder="Enter your name">
+                </div>
+
+                <div class="mb-2">
+                  <label for="input2" class="form-label"><strong>Mobile</strong></label>
+                  <input type="number" class="form-control" id="input2" placeholder="Enter mobile number">
+                </div>
+
+                <div class="mb-2">
+                    <label for="input3" class="form-label"><strong>Mobile</strong></label>
+                    <input type="email" class="form-control" id="input3" placeholder="Enter email_id">
+                </div>
+
+                <div class="mb-2">
+                    <label for="input4" class="form-label"><strong>Message</strong></label>
+                    <textarea name="msg" class="form-control"  id="input4" cols="30" rows="5"></textarea>
+                </div>
+
+                <div class="mb-2">
+                  <input type="submit" class="btn btn-danger" value="Send">
+                </div>
+            </form>
+    </div><!--Contact form-->
+</div>
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,55 @@
+{% include 'header.html' %}
+<title>Flash Ststionery|Home</title>
+<div class="container" >
+
+<div class="row">
+    
+    {% if query %}
+    <center><h5>Search result for:<strong>{{query}}</strong></h5></center>
+    {% endif %}
+   
+    <div class="col-md-3 bg-light p-3">
+        
+        <h5>Filter by category</h5>
+        <p><a href="{% url 'index' %}" class="anchor">All</a></p>
+        <p><a href="{% url 'penlistview' %}" class="anchor">By Pen</a></p>
+        <p><a href="{% url 'notebooklistview' %}" class="anchor">By NoteBook</a></p>
+        <p><a href="{% url 'Calculatorlistview' %}" class="anchor">By Calculator</a></p>
+        <p><a href="{% url 'otherProductlistview' %}" class="anchor">By Other Product</a></p>
+        <hr>
+        
+            {% csrf_token %}
+        </form>
+       
+    </div>  <!--end of side bar-->
+
+    <div class="col-md-9 mt-4 bg-light p-3">
+        <div class="row">
+            {% for item in allproducts %}
+            <div class="col-md-3 mb-4"> <!-- Added mb-4 class for margin-bottom -->
+                <div class="card h-100"> <!-- Added h-100 class for equal card height -->
+                    <div class="col-12 mt-3">
+                        <img src="{{item.image.url}}" class="card-img-top" alt="{{item.product_name}} " width="100px" height="100px">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">Product Name: {{item.product_name}}</p>
+                        <p class="card-text">Product Details: {{item.desc}}</p>
+                        <p class="card-text">Price: Rs.{{item.price}}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/add_to_cart/{{item.product_id}}" class="btn btn-danger">Add to Cart</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/add_to_cart/{{item.product_id}}" class="btn btn-danger">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> <!--product list-->
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include 'footer.html' %}
